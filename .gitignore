@@ -143,4 +143,4 @@ vite.config.ts.timestamp-*
 .DS_Store 
 
 
-/routeTree.gen
+routeTree.gen.ts
