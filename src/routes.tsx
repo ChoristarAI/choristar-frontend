@@ -1,12 +1,12 @@
 import {
-  createRouter as createTanstackRouter,
   RouterProvider,
+  createRouter as createTanstackRouter,
 } from '@tanstack/react-router'
 import { StrictMode } from 'react'
 import ReactDOM from 'react-dom/client'
 
+import { GlobalProviders, getContext } from './providers'
 import { routeTree } from './routeTree.gen'
-import { getContext, GlobalProviders } from './providers'
 
 export const createRouter = () => {
   const rqCtx = getContext()
