@@ -7,6 +7,7 @@ import ReactDOM from 'react-dom/client'
 
 import { GlobalProviders, getContext } from './providers'
 import { routeTree } from './routeTree.gen'
+import './styles/global.css'
 
 export const createRouter = () => {
   const rqCtx = getContext()
@@ -18,6 +19,8 @@ export const createRouter = () => {
     Wrap: (props: { children: React.ReactNode }) => {
       return <GlobalProviders {...rqCtx}>{props.children}</GlobalProviders>
     },
+    defaultPreloadStaleTime: 0,
+    scrollRestoration: true,
   })
 
   return router
