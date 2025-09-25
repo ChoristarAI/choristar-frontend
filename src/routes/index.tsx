@@ -1,5 +1,5 @@
 import { createFileRoute } from '@tanstack/react-router'
-import { Hero } from '@/shared/components/misc'
+import { Hero, PoweredMedleys } from '@/shared/components/misc'
 import { Footer, Header } from '@/shared/components/navigation'
 
 export const Route = createFileRoute('/')({
@@ -12,7 +12,9 @@ function App() {
       <div className="relative z-10">
         <Header />
         <Hero />
-        <main className="flex flex-1 gap-9 bg-white pt-3">My Main is here</main>
+        <main className="flex flex-1 gap-9 bg-white pt-3">
+          <PoweredMedleys />
+        </main>
         <Footer />
       </div>
     </div>
