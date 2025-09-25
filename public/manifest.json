@@ -1,5 +1,8 @@
 {
   "name": "Choristar AI",
+  "theme_color": "#0C446B",
+  "background_color": "#F9F8FB",
+  "orientation": "portrait",
   "icons": [
     {
       "src": "\/favicons/android-icon-36x36.png",
