@@ -1,5 +1,7 @@
 import { Link } from '@tanstack/react-router'
+
 import { Button } from '../ui'
+
 import { ChoristarLogoIcon } from '@/assets/svg'
 
 export const Header = () => {
