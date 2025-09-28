@@ -59,7 +59,11 @@ export const ScoringAssistant = () => {
                 </div>
                 <SongSections />
               </div>
-              <SoundWaveLoader data={secondWaveData} className="min-h-11" />
+              <SoundWaveLoader
+                data={secondWaveData}
+                className="min-h-11"
+                ease="linear"
+              />
             </div>
           </div>
         </div>
@@ -163,7 +167,7 @@ const soundWaveData = [
   20, 44, 32, 32, 20, 44, 20, 32, 32, 44, 44, 32, 32, 20, 32, 32, 20, 20, 44,
   32, 44, 44, 32, 32, 20, 32, 32, 20, 20, 44, 20, 44, 32, 32, 20, 44, 20, 32,
   32, 44, 44, 20, 32, 32, 20, 20, 44, 20, 44, 32, 20, 32, 32, 20, 20, 44, 32,
-  44, 44, 20, 32, 32, 44, 44, 32, 32, 20, 44,
+  44, 44, 20, 32, 32, 44, 44, 32, 32, 20, 44, 20, 32, 32, 20, 20, 44,
 ]
 
 const secondWaveData = soundWaveData.map((height) => Math.round(height * 0.65))
@@ -171,11 +175,13 @@ const secondWaveData = soundWaveData.map((height) => Math.round(height * 0.65))
 interface SoundWaveLoaderProps {
   className?: string
   data: Array<number>
+  ease?: 'backInOut' | 'linear' | 'easeInOut'
 }
 
 const SoundWaveLoader: React.FC<SoundWaveLoaderProps> = ({
   className,
   data,
+  ease = 'backInOut',
 }) => (
   <div
     className={cn('flex flex-row items-center gap-x-0.5 min-h-20', className)}
@@ -188,7 +194,7 @@ const SoundWaveLoader: React.FC<SoundWaveLoaderProps> = ({
           backgroundColor: 'var(--color-choristar-primary-light)',
         }}
         animate={{
-          height: [height * 0.5, height, height * 0.5],
+          height: [height * 0.25, height, height * 0.65],
           backgroundColor: [
             'var(--color-choristar-primary-light)',
             'var(--color-choristar-primary)',
@@ -196,9 +202,9 @@ const SoundWaveLoader: React.FC<SoundWaveLoaderProps> = ({
           ],
         }}
         transition={{
-          duration: 1,
+          duration: 1.5,
           repeat: Infinity,
-          ease: 'linear',
+          ease,
           delay: idx * 0.1,
         }}
         className="w-1 rounded-full"
