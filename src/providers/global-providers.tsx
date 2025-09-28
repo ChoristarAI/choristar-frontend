@@ -1,5 +1,6 @@
-import { ReactQueryProvider } from './react-query-provider'
 import type { QueryClient } from '@tanstack/react-query'
+
+import { ReactQueryProvider } from './react-query-provider'
 
 interface GlobalProvidersProps {
   queryClient: QueryClient

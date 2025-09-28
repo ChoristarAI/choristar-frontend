@@ -1,14 +1,16 @@
-import { motion } from 'motion/react'
 import { MoveRight } from 'lucide-react'
+import { motion } from 'motion/react'
 import { useCallback, useEffect, useRef, useState } from 'react'
+
 import { Button, Input } from '../ui'
+
+import { CommonIcons } from '@/assets'
 import {
   MusicFilterIcon,
   SMSEmailIcon,
   VoiceCircleIcon,
   VolumeHighIcon,
 } from '@/assets/svg'
-import { CommonIcons } from '@/assets'
 
 export const Hero = () => {
   return (

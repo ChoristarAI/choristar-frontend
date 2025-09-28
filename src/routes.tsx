@@ -1,11 +1,12 @@
 import {
-  RouterProvider,
   createRouter as createTanstackRouter,
+  RouterProvider,
 } from '@tanstack/react-router'
+
 import { StrictMode } from 'react'
 import ReactDOM from 'react-dom/client'
 
-import { GlobalProviders, getContext } from './providers'
+import { getContext, GlobalProviders } from './providers'
 import { routeTree } from './routeTree.gen'
 import './styles/global.css'
 
