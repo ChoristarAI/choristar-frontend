@@ -30,13 +30,13 @@ const ForwardedInput: React.ForwardRefRenderFunction<
   return (
     <div
       className={cn(
-        'relative flex h-10 w-full rounded-lg focus-visible:outline-none',
+        'relative flex h-10 w-full rounded-lg focus-visible:outline-none overflow-hidden',
         containerClassName,
       )}
     >
       <div
         className={cn(
-          'flex h-full w-full flex-row items-center rounded-lg border border-text-field bg-background px-1 ring-offset-background transition-colors focus-within:ring-2 focus-within:ring-ring focus-within:ring-offset-2 focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:outline-none',
+          'flex h-full w-full flex-row items-center border border-text-field bg-background px-1 ring-offset-background transition-colors focus-within:ring-2 focus-within:ring-ring focus-within:ring-offset-2 focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:outline-none',
           error && 'border-destructive focus-within:ring-destructive',
         )}
       >
@@ -57,7 +57,7 @@ const ForwardedInput: React.ForwardRefRenderFunction<
           spellCheck={false}
           autoComplete="off"
           className={cn(
-            'flex h-full w-full min-w-0 border-none bg-transparent pr-3 pl-3 text-base font-medium file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:font-Inter-Tight placeholder:font-normal placeholder:text-muted-foreground focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm',
+            'flex h-full w-full min-w-0 border-none bg-transparent pr-3 pl-3 text-base font-medium file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:font-inter-tight placeholder:font-normal placeholder:text-muted-foreground focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm',
             isStartActive && ['pl-0'],
             isEndActive && ['pr-0'],
             className,

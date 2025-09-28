@@ -2,18 +2,18 @@
   p {
     font-size: var(--text-base);
     color: var(--color-gray-700);
-    font-family: var(--font-Inter-Tight);
+    font-family: var(--font-inter-tight);
   }
   h1 {
     font-size: var(--text-4xl);
     font-weight: var(--font-weight-semibold);
     color: var(--color-main-text);
-    font-family: var(--font-Inter-Tight);
+    font-family: var(--font-inter-tight);
   }
   h2 {
     font-size: var(--text-xl);
     font-weight: var(--font-weight-semibold);
     color: var(--color-gray-950);
-    font-family: var(--font-Inter-Tight);
+    font-family: var(--font-inter-tight);
   }
 }

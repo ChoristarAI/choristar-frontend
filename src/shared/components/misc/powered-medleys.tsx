@@ -39,7 +39,7 @@ export const PoweredMedleys = () => (
           <div className="absolute z-10 flex min-h-80 w-full md:max-w-90 flex-col gap-3 rounded-2xl bg-[#F5F5F7] px-6 py-9 shadow-2xl max-w-80">
             <div className="flex flex-col items-center justify-center gap-1">
               <MusicPrimaryIcon />
-              <span className="block text-center font-Inter-Tight text-xl font-semibold text-pretty capitalize">
+              <span className="block text-center font-inter-tight text-xl font-semibold text-pretty capitalize">
                 create new medley
               </span>
             </div>
@@ -49,14 +49,14 @@ export const PoweredMedleys = () => (
       </div>
       <div className="col-span-2 flex flex-col gap-9.5 md:col-span-1">
         <div className="flex flex-col gap-4">
-          <span className="block font-Inter-Tight text-lg leading-6 font-semibold text-pretty text-[#6F46E5]">
+          <span className="block font-inter-tight text-lg leading-6 font-semibold text-pretty text-[#6F46E5]">
             AI Powered Medleys
           </span>
           <p className="text-3xl leading-8.5 font-semibold text-pretty text-main-text">
             Input a theme, rhythm, and style, and let AI craft your perfect
             medley
           </p>
-          <span className="block font-Inter-Tight text-lg">
+          <span className="block font-inter-tight text-lg">
             Lead vocalists and directors spend hours brainstorming themed
             medleys for ministrations. This feature saves time and sparks
             creativity.
@@ -172,7 +172,7 @@ const AnimatedTransitionTab = () => {
             >
               <span
                 className={cn(
-                  'block font-Inter-Tight text-[12.03px] font-light text-pretty capitalize',
+                  'block font-inter-tight text-[12.03px] font-light text-pretty capitalize',
                   key === tab && 'font-semibold',
                 )}
               >

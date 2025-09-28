@@ -3,7 +3,9 @@ import { createFileRoute } from '@tanstack/react-router'
 import {
   Hero,
   PoweredMedleys,
+  RehearsalReminders,
   ScoringAssistant,
+  WaitListCard,
 } from '@/shared/components/misc'
 import { Footer, Header } from '@/shared/components/navigation'
 
@@ -20,6 +22,8 @@ function App() {
         <main className="flex flex-1 gap-6.5 bg-white pt-3 flex-col">
           <PoweredMedleys />
           <ScoringAssistant />
+          <RehearsalReminders />
+          <WaitListCard />
         </main>
         <Footer />
       </div>

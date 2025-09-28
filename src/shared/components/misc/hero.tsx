@@ -60,7 +60,7 @@ export const Hero = () => {
                 ease: 'easeInOut',
               }}
             >
-              <img src="/phone-left.png" />
+              <img src="/phone-left.png" alt="Choristar AI Mobile App" />
             </motion.div>
             <motion.div
               initial={{ y: 0, rotate: 2 }}
@@ -75,7 +75,7 @@ export const Hero = () => {
                 ease: 'easeInOut',
               }}
             >
-              <img src="/phone-right.png" />
+              <img src="/phone-right.png" alt="Choristar AI Mobile App" />
             </motion.div>
           </div>
         </div>
