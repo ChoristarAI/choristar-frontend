@@ -17,7 +17,7 @@ function App() {
       <div className="relative z-10">
         <Header />
         <Hero />
-        <main className="flex flex-1 gap-9 bg-white pt-3 flex-col">
+        <main className="flex flex-1 gap-6.5 bg-white pt-3 flex-col">
           <PoweredMedleys />
           <ScoringAssistant />
         </main>

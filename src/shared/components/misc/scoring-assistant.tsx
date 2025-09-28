@@ -9,7 +9,7 @@ import { cn } from '@/lib/utils'
 export const ScoringAssistant = () => {
   return (
     <section className="section-container w-full px-4 md:px-8 lg:px-10 xl:px-16">
-      <div className="grid h-full w-full grid-cols-2 items-center py-16 md:py-24 md:gap-4 gap-16">
+      <div className="grid h-full w-full grid-cols-2 items-center py-14 md:py-24 md:gap-4 gap-16">
         <div className="col-span-2 flex flex-col gap-9.5 md:col-span-1 md:order-1 order-2">
           <div className="flex flex-col gap-4">
             <span className="block font-Inter-Tight text-lg leading-6 font-semibold text-pretty text-[#6F46E5]">
@@ -33,6 +33,9 @@ export const ScoringAssistant = () => {
         </div>
         <div className="col-span-2 w-full place-content-center place-items-center items-center-safe md:col-span-1 order-1 md:order-2">
           <div className="relative flex min-h-96 w-full items-center justify-center">
+            <div className="absolute z-40 -top-3 md:left-0 -left-10">
+              <SoundWaveLoader data={soundWaveData} />
+            </div>
             <div className="absolute z-10 flex min-h-80 w-full max-w-90 flex-col gap-5 rounded-2xl bg-[#F5F5F7] px-6 py-9 shadow-2xl">
               <div className="mt-9.5 md:pl-6.5 grid grid-cols-2 gap-3.5">
                 {options.map(({ title, icon }) => (
@@ -56,8 +59,7 @@ export const ScoringAssistant = () => {
                 </div>
                 <SongSections />
               </div>
-              <LinearSoundWaveLoader />
-              <RadioWaveLoader />
+              <SoundWaveLoader data={secondWaveData} className="min-h-11" />
             </div>
           </div>
         </div>
@@ -157,77 +159,50 @@ const SongSections = () => {
   )
 }
 
-const waveData = [
-  { height: 8, color: 'bg-purple-600/60', delay: 0.1 },
-  { height: 16, color: 'bg-purple-500/60', delay: 0.2 },
-  { height: 8, color: 'bg-purple-800/60', delay: 0.4 },
-  { height: 12, color: 'bg-purple-700/60', delay: 0.7 },
-  { height: 24, color: 'bg-purple-600/60', delay: 0.6 },
-  { height: 36, color: 'bg-purple-500/60', delay: 0.5 },
-  { height: 24, color: 'bg-purple-600/60', delay: 0.6 },
-  { height: 12, color: 'bg-purple-700/60', delay: 0.7 },
-  { height: 8, color: 'bg-purple-800/60', delay: 0.4 },
-  { height: 16, color: 'bg-purple-500/60', delay: 0.2 },
-  { height: 8, color: 'bg-purple-600/60', delay: 0.1 },
+const soundWaveData = [
+  20, 44, 32, 32, 20, 44, 20, 32, 32, 44, 44, 32, 32, 20, 32, 32, 20, 20, 44,
+  32, 44, 44, 32, 32, 20, 32, 32, 20, 20, 44, 20, 44, 32, 32, 20, 44, 20, 32,
+  32, 44, 44, 20, 32, 32, 20, 20, 44, 20, 44, 32, 20, 32, 32, 20, 20, 44, 32,
+  44, 44, 20, 32, 32, 44, 44, 32, 32, 20, 44,
 ]
 
-export const soundWaveData = []
+const secondWaveData = soundWaveData.map((height) => Math.round(height * 0.65))
 
-function LinearSoundWaveLoader() {
-  return (
-    <div className="flex flex-row gap-x-2 items-center justify-center">
-      {waveData.map(({ height, color, delay }, i) => (
-        <motion.div
-          key={i}
-          className={`${color} rounded-full w-2`}
-          animate={{ scaleY: [0, 1, 0] }}
-          transition={{
-            duration: 1,
-            ease: 'linear',
-            repeat: Infinity,
-            delay,
-          }}
-          // originY so it scales from bottom up
-          style={{
-            height,
-            transformOrigin: 'center bottom',
-          }}
-        />
-      ))}
-    </div>
-  )
+interface SoundWaveLoaderProps {
+  className?: string
+  data: Array<number>
 }
 
-const waveBars = [
-  { height: 8, color: 'bg-purple-600/60', delay: 0 },
-  { height: 16, color: 'bg-purple-500/60', delay: 0.15 },
-  { height: 8, color: 'bg-purple-800/60', delay: 0.3 },
-  { height: 12, color: 'bg-purple-700/60', delay: 0.45 },
-  { height: 24, color: 'bg-purple-600/60', delay: 0.6 },
-  { height: 36, color: 'bg-purple-500/60', delay: 0.75 },
-  { height: 24, color: 'bg-purple-600/60', delay: 0.9 },
-  { height: 12, color: 'bg-purple-700/60', delay: 1.05 },
-  { height: 8, color: 'bg-purple-800/60', delay: 1.2 },
-  { height: 16, color: 'bg-purple-500/60', delay: 1.35 },
-]
-
-function RadioWaveLoader() {
-  return (
-    <div className="flex items-end gap-x-2 overflow-hidden">
-      {waveBars.map(({ height, color, delay }, i) => (
-        <motion.div
-          key={i}
-          className={`rounded-full w-2 ${color}`}
-          style={{ height, originY: 1 }}
-          animate={{ scaleY: [0.3, 1, 0.3] }}
-          transition={{
-            duration: 1.5,
-            ease: 'linear',
-            repeat: Infinity,
-            delay,
-          }}
-        />
-      ))}
-    </div>
-  )
-}
+const SoundWaveLoader: React.FC<SoundWaveLoaderProps> = ({
+  className,
+  data,
+}) => (
+  <div
+    className={cn('flex flex-row items-center gap-x-0.5 min-h-20', className)}
+  >
+    {data.map((height, idx) => (
+      <motion.div
+        key={idx}
+        initial={{
+          height: height * 0.5,
+          backgroundColor: 'var(--color-choristar-primary-light)',
+        }}
+        animate={{
+          height: [height * 0.5, height, height * 0.5],
+          backgroundColor: [
+            'var(--color-choristar-primary-light)',
+            'var(--color-choristar-primary)',
+            'var(--color-choristar-primary-light)',
+          ],
+        }}
+        transition={{
+          duration: 1,
+          repeat: Infinity,
+          ease: 'linear',
+          delay: idx * 0.1,
+        }}
+        className="w-1 rounded-full"
+      />
+    ))}
+  </div>
+)

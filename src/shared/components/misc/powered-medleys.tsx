@@ -9,7 +9,7 @@ import { cn } from '@/lib/utils'
 
 export const PoweredMedleys = () => (
   <section className="section-container w-full px-4 md:px-8 lg:px-10 xl:px-16">
-    <div className="grid h-full w-full grid-cols-2 items-center py-16 md:py-24 gap-16 md:gap-4">
+    <div className="grid h-full w-full grid-cols-2 items-center py-14 md:py-24 gap-16 md:gap-4">
       <div className="col-span-2 w-full place-content-center place-items-center items-center-safe md:col-span-1">
         <div className="relative flex min-h-96 w-full items-center justify-center">
           <div className="absolute bottom-0 h-52 w-full md:max-w-[400px] rounded-br-2xl rounded-bl-2xl bg-[#F5F5F7] shadow-2xl max-w-90">
