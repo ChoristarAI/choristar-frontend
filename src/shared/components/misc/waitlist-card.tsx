@@ -1,6 +1,5 @@
-import { MoveRight } from 'lucide-react'
-
-import { Button, Input } from '../ui'
+import { Input } from '../ui'
+import { ButtonWithArrow } from './waitlist-form'
 
 import {
   PolygonLeftBottom,
@@ -37,10 +36,7 @@ export const WaitListCard = () => {
               containerClassName="lg:w-md md:w-sm rounded-4xl bg-[#F5F5F7] h-13.5"
               placeholder="Type your email"
               endAdornment={
-                <Button className="rounded-4xl capitalize">
-                  <span className="block text-sm">join the waitlist</span>
-                  <MoveRight className="h-6 w-6 text-white md:h-4 md:w-4 lg:h-5 lg:w-5" />
-                </Button>
+                <ButtonWithArrow className="rounded-4xl capitalize" />
               }
             />
           </div>

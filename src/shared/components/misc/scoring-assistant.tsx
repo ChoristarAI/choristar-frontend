@@ -1,7 +1,7 @@
 import { motion } from 'motion/react'
 import { useEffect, useState } from 'react'
 
-import { Button } from '../ui'
+import { ButtonWithOutline } from './waitlist-form'
 
 import { MessageQuestionIcon, PauseIcon, PlayIcon } from '@/assets/svg'
 import { cn } from '@/lib/utils'
@@ -23,12 +23,7 @@ export const ScoringAssistant = () => (
             feature positions ChoristarAI as their digital vocal coach.
           </span>
         </div>
-        <Button
-          className="w-max rounded-3xl px-5 py-3.5 font-medium"
-          variant="outline"
-        >
-          Join the waitlist
-        </Button>
+        <ButtonWithOutline className="w-max rounded-3xl px-5 py-3.5 font-medium" />
       </div>
       <div className="col-span-2 w-full place-content-center place-items-center items-center-safe md:col-span-1 order-1 md:order-2">
         <div className="relative flex min-h-96 w-full items-center justify-center">

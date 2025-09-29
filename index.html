@@ -4,13 +4,29 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="/favicon.ico" />
+    <meta name="robots" content="INDEX,FOLLOW" />
+    <meta name="Googlebot" content="index, follow" />
     <meta name="theme-color" content="#F9F8FB" />
-    <meta name="description" content="Choristar AI Web Application" />
+    <meta
+      name="description"
+      content="Choristar AI helps musicians, vocalists, and instrumentalists create amazing music with artificial intelligence. Join the waitlist today!"
+    />
     <link rel="apple-touch-icon" href="/favicons/apple-icon.png" />
     <link rel="manifest" href="/manifest.json" />
   </head>
   <body>
     <div id="app"></div>
     <script type="module" src="/src/routes.tsx"></script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Choristar AI",
+        "applicationCategory": "MusicApplication",
+        "operatingSystem": "Web Browser",
+        "description": "AI-powered music creation platform for musicians, vocalists, and instrumentalists",
+        "url": "https://choristar.io/"
+      }
+    </script>
   </body>
 </html>
