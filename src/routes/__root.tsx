@@ -16,8 +16,10 @@ interface MyRouterContext {
 
 export const Route = createRootRouteWithContext<MyRouterContext>()({
   head: () => ({
-    title: 'Choristar AI - Revolutionizing Music Creation',
     meta: [
+      {
+        title: 'Choristar AI - Revolutionizing Music Creation',
+      },
       {
         name: 'keywords',
         content:
