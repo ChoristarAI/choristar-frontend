@@ -3,6 +3,7 @@ import { motion } from 'motion/react'
 import { useCallback, useEffect, useState } from 'react'
 
 import { Button, Input } from '../ui'
+import { ButtonWithOutline } from './waitlist-form'
 
 import { MusicPrimaryIcon, MusicWhiteIcon } from '@/assets/svg'
 import { cn } from '@/lib/utils'
@@ -62,12 +63,7 @@ export const PoweredMedleys = () => (
             creativity.
           </span>
         </div>
-        <Button
-          className="w-max rounded-3xl px-5 py-3.5 font-medium"
-          variant="outline"
-        >
-          Join the waitlist
-        </Button>
+        <ButtonWithOutline />
       </div>
     </div>
   </section>

@@ -1,8 +1,8 @@
-import { MoveRight } from 'lucide-react'
 import { motion } from 'motion/react'
 import { useCallback, useEffect, useRef, useState } from 'react'
 
-import { Button, Input } from '../ui'
+import { Input } from '../ui'
+import { ButtonWithArrow } from './waitlist-form'
 
 import { CommonIcons } from '@/assets'
 import {
@@ -25,7 +25,7 @@ export const Hero = () => {
               stay rehearsal-ready — powered by AI.
             </p>
             <div className="mt-1 grid w-full grid-cols-3 gap-2">
-              <div className="w-full400 col-span-3 md:col-span-2">
+              <div className="w-full col-span-3 md:col-span-2">
                 <Input
                   name="email"
                   type="email"
@@ -36,10 +36,7 @@ export const Hero = () => {
                 />
               </div>
               <div className="col-span-3 h-12 w-full md:col-span-1">
-                <Button className="flex h-full w-full items-center justify-between gap-3 rounded-4xl px-3 capitalize md:w-max">
-                  <span className="block text-sm">join the waitlist</span>
-                  <MoveRight className="h-6 w-6 text-white md:h-4 md:w-4 lg:h-5 lg:w-5" />
-                </Button>
+                <ButtonWithArrow />
               </div>
             </div>
           </div>

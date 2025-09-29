@@ -2,6 +2,7 @@ import { X } from 'lucide-react'
 import { motion } from 'motion/react'
 
 import { Button } from '../ui'
+import { ButtonWithOutline } from './waitlist-form'
 
 import { CommonIcons } from '@/assets'
 import { cn } from '@/lib/utils'
@@ -178,12 +179,7 @@ export const RehearsalReminders = () => {
               kills progress. Choristar becomes your accountability partner.
             </span>
           </div>
-          <Button
-            className="w-max rounded-3xl px-5 py-3.5 font-medium z-10"
-            variant="outline"
-          >
-            Join the waitlist
-          </Button>
+          <ButtonWithOutline />
         </div>
       </div>
     </section>

@@ -1,6 +1,6 @@
 import { Link } from '@tanstack/react-router'
 
-import { Button } from '../ui'
+import { ButtonWithOutline } from '../misc'
 
 import { ChoristarLogoIcon } from '@/assets/svg'
 
@@ -11,12 +11,7 @@ export const Header = () => {
         <ChoristarLogoIcon />
         <p className="font-semibold text-main-text capitalize">choristar</p>
       </Link>
-      <Button
-        className="rounded-3xl px-4 py-3.5 font-medium md:px-6 lg:px-9"
-        variant="outline"
-      >
-        Join the waitlist
-      </Button>
+      <ButtonWithOutline className="rounded-3xl px-4 py-3.5 font-medium md:px-6 lg:px-9" />
     </header>
   )
 }
