@@ -35,6 +35,7 @@
     "@tanstack/store": "0.7.0",
     "class-variance-authority": "0.7.1",
     "clsx": "2.1.1",
+    "google-spreadsheet": "5.0.2",
     "lucide-react": "0.476.0",
     "motion": "12.23.19",
     "react": "19.0.0",
