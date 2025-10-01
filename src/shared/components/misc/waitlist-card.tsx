@@ -1,3 +1,5 @@
+import { useCallback, useState } from 'react'
+
 import { Input } from '../ui'
 import { ButtonWithArrow } from './waitlist-form'
 
@@ -9,6 +11,13 @@ import {
 } from '@/assets/svg'
 
 export const WaitListCard = () => {
+  const [email, setEmailValue] = useState('')
+  const [displayEmail, setDisplayEmail] = useState('')
+
+  const handleClear = useCallback(() => {
+    setEmailValue(displayEmail)
+    setDisplayEmail('')
+  }, [displayEmail])
   return (
     <section className="section-container  w-full px-4 md:px-8 lg:px-10 xl:px-16">
       <div className="py-14 md:py-24">
@@ -33,10 +42,17 @@ export const WaitListCard = () => {
             </p>
             <Input
               className="px-2 md:px-4 placeholder:font-light placeholder:text-sm"
-              containerClassName="lg:w-md md:w-sm rounded-4xl bg-[#F5F5F7] h-13.5"
+              containerClassName="lg:w-md md:w-sm bg-[#F5F5F7] h-13.5 rounded-4xl"
+              innerClassName="rounded-4xl"
               placeholder="Type your email"
+              onChange={(e) => setDisplayEmail(e.target.value)}
+              value={displayEmail}
               endAdornment={
-                <ButtonWithArrow className="rounded-4xl capitalize" />
+                <ButtonWithArrow
+                  className="rounded-4xl capitalize"
+                  email={email}
+                  clear={handleClear}
+                />
               }
             />
           </div>

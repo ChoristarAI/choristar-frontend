@@ -6,6 +6,7 @@ type InputProps = {
   startAdornment?: React.ReactNode
   endAdornment?: React.ReactNode
   containerClassName?: string
+  innerClassName?: string
   error?: boolean
 } & React.ComponentPropsWithRef<'input'>
 
@@ -15,6 +16,7 @@ const ForwardedInput: React.ForwardRefRenderFunction<
 > = (
   {
     containerClassName,
+    innerClassName,
     endAdornment,
     startAdornment,
     className,
@@ -30,13 +32,14 @@ const ForwardedInput: React.ForwardRefRenderFunction<
   return (
     <div
       className={cn(
-        'relative flex h-10 w-full rounded-lg focus-visible:outline-none overflow-hidden',
+        'relative flex h-10 w-full focus-visible:outline-none',
         containerClassName,
       )}
     >
       <div
         className={cn(
-          'flex h-full w-full flex-row items-center border border-text-field bg-background px-1 ring-offset-background transition-colors focus-within:ring-2 focus-within:ring-ring focus-within:ring-offset-2 focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:outline-none',
+          'flex h-full w-full flex-row items-center border border-text-field bg-background px-1 ring-offset-background transition-colors focus-within:ring-2 focus-within:ring-ring focus-within:ring-offset-2 focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:outline-none rounded-md',
+          innerClassName,
           error && 'border-destructive focus-within:ring-destructive',
         )}
       >

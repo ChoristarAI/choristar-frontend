@@ -8,3 +8,5 @@ export {
   WaitListForm,
   ButtonWithOutline,
 } from './waitlist-form'
+
+export { SubscribeButton, TextField } from './form-components'
