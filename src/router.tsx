@@ -3,7 +3,6 @@ import { setupRouterSsrQueryIntegration } from '@tanstack/react-router-ssr-query
 
 import { GlobalProviders, getContext } from './providers'
 import { routeTree } from './routeTree.gen'
-import './styles/global.css'
 
 export const getRouter = () => {
   const rqCtx = getContext()
