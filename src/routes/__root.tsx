@@ -33,6 +33,10 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
         content: 'index, follow',
       },
       {
+        name: 'env',
+        content: `${import.meta.env.PROD}`,
+      },
+      {
         name: 'theme-color',
         content: '#F9F8FB',
       },
@@ -144,18 +148,20 @@ function RootDocument({ children }: { children: React.ReactNode }) {
       <body>
         <HeadContent />
         {children}
-        <TanStackDevtools
-          config={{
-            position: 'bottom-left',
-          }}
-          plugins={[
-            {
-              name: 'Choristar AI Panel',
-              render: <TanStackRouterDevtoolsPanel />,
-            },
-            TanStackQueryDevtools,
-          ]}
-        />
+        {import.meta.env.PROD ? null : (
+          <TanStackDevtools
+            config={{
+              position: 'bottom-left',
+            }}
+            plugins={[
+              {
+                name: 'Choristar AI Panel',
+                render: <TanStackRouterDevtoolsPanel />,
+              },
+              TanStackQueryDevtools,
+            ]}
+          />
+        )}
         <Toaster />
         <Scripts />
         <script
