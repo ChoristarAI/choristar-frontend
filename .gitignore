@@ -144,3 +144,5 @@ vite.config.ts.timestamp-*
 
 
 routeTree.gen.ts
+# Local Netlify folder
+.netlify

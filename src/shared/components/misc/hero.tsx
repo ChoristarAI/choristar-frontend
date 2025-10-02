@@ -109,7 +109,7 @@ const icons = [
   {
     id: 'music',
     wrapper:
-      'absolute top-[233px] left-[10px] flex h-13 w-13 items-center justify-center rounded-full bg-white shadow-lg xl:top-[400px]',
+      'absolute top-[233px] left-[10px] sm:top-[150px] sm:left-[40px] md:top-[233px] md:left-[10px]  flex h-13 w-13 items-center justify-center rounded-full bg-white shadow-lg lg:top-[350px] lg:left-[50px]',
     inner:
       'flex h-11.5 w-11.5 items-center justify-center rounded-full bg-choristar-primary-light',
     component: <MusicFilterIcon />,
