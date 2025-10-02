@@ -7,7 +7,7 @@ import { ChoristarLogoIcon } from '@/assets/svg'
 
 export const Footer = () => {
   return (
-    <footer className="relative flex flex-col items-center justify-around gap-4 border-t border-footer-border bg-transparent py-4 md:flex-row">
+    <footer className="relative flex flex-col items-center justify-around gap-4 border-t border-footer-border bg-background py-4 md:flex-row">
       <Link className="order-1 flex items-center gap-4 md:order-1" to="/">
         <ChoristarLogoIcon />
         <p className="font-semibold text-main-text capitalize">choristar</p>
