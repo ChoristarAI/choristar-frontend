@@ -20,6 +20,7 @@ export const Hero = () => {
     setEmailValue(displayEmail)
     setDisplayEmail('')
   }, [displayEmail])
+
   return (
     <section className="section-container z-10 h-[calc(100lvh-80px)] bg-[linear-gradient(180deg,#F9F8FB_70.67%,#FFFFFF_100%)] px-4 md:px-10 lg:px-14 xl:px-24">
       <div className="absolute inset-0 [background-image:radial-gradient(circle_at_20%_20%,#6F46E50D_20%,transparent_60%),radial-gradient(circle_at_50%_50%,#FF647F0D_20%,transparent_60%)] opacity-60"></div>
@@ -32,7 +33,7 @@ export const Hero = () => {
               stay rehearsal-ready — powered by AI.
             </p>
             <div className="mt-1 grid w-full grid-cols-3 gap-2">
-              <div className="w-full col-span-3 md:col-span-2">
+              <div className="col-span-3 w-full md:col-span-2">
                 <Input
                   name="email"
                   type="email"

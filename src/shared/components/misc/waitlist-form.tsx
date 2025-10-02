@@ -1,5 +1,7 @@
-import { MoveRight } from 'lucide-react'
+import { MoveRight, Music2, Sparkles } from 'lucide-react'
 
+import { useState } from 'react'
+import { motion } from 'motion/react'
 import {
   Button,
   Dialog,
@@ -10,7 +12,7 @@ import {
   DialogTrigger,
 } from '../ui'
 
-import { useAppForm } from '@/hooks'
+import { useAppForm, useGoogleSheet } from '@/hooks'
 import { cn } from '@/lib/utils'
 import { waitListSchema } from '@/shared/schemas'
 
@@ -21,12 +23,13 @@ interface WaitListFormProps {
 export const WaitListForm: React.FC<
   React.PropsWithChildren<WaitListFormProps>
 > = ({ children, email = '' }) => {
+  const [open, setOpen] = useState(false)
   return (
-    <Dialog>
+    <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>{children}</DialogTrigger>
       <DialogContent className="rounded-2xl">
         <DialogHeader>
-          <DialogTitle className="font-semibold text-lg font-inter-tight">
+          <DialogTitle className="font-inter-tight text-lg font-semibold">
             Join The Waitlist
           </DialogTitle>
           <DialogDescription className="font-inter-tight text-[14px]">
@@ -34,7 +37,7 @@ export const WaitListForm: React.FC<
             group, and be the first to know when we launch!
           </DialogDescription>
         </DialogHeader>
-        <WaitListFormComponent email={email} />
+        <WaitListFormComponent email={email} close={() => setOpen(false)} />
       </DialogContent>
     </Dialog>
   )
@@ -88,12 +91,15 @@ export const ButtonWithOutline: React.FC<ButtonWithOutlineProps> = ({
 )
 
 interface WaitListFormComponentProps {
+  close: () => void
   email: string
 }
 
 const WaitListFormComponent: React.FC<WaitListFormComponentProps> = ({
+  close,
   email,
 }) => {
+  const { getFormValue, isFetching, isPending } = useGoogleSheet(close)
   const form = useAppForm({
     defaultValues: {
       email: email || '',
@@ -104,9 +110,7 @@ const WaitListFormComponent: React.FC<WaitListFormComponentProps> = ({
       onBlur: waitListSchema,
     },
     onSubmit: ({ value }) => {
-      console.log(value)
-      // Show success message
-      alert('Form submitted successfully!')
+      getFormValue(value)
     },
   })
 
@@ -118,7 +122,7 @@ const WaitListFormComponent: React.FC<WaitListFormComponentProps> = ({
           e.stopPropagation()
           form.handleSubmit()
         }}
-        className="gap-5 flex flex-col"
+        className="flex flex-col gap-5"
       >
         <form.AppField name="name">
           {(field) => <field.TextField placeholder="Name *" />}
@@ -131,9 +135,91 @@ const WaitListFormComponent: React.FC<WaitListFormComponentProps> = ({
         </form.AppField>
 
         <form.AppForm>
-          <form.SubscribeButton className="rounded-4xl mt-2.5" label="Submit" />
+          <form.SubscribeButton
+            className="mt-2.5 rounded-4xl"
+            label="Submit"
+            loading={isFetching || isPending}
+            loadingText={isFetching ? 'Please wait...' : undefined}
+          />
         </form.AppForm>
       </form>
     </div>
   )
 }
+
+export const PremiumSuccessToast = () => (
+  <motion.div
+    initial={{ opacity: 0, scale: 0.9 }}
+    animate={{ opacity: 1, scale: 1 }}
+    className="relative max-w-md overflow-hidden rounded-lg bg-gradient-to-br from-[#6F46E50D] via-choristar-primary to-[#FF647F0D] p-4 text-white shadow-2xl"
+  >
+    <div className="absolute inset-0">
+      {Array.from({ length: 15 }).map((_, i) => (
+        <motion.div
+          key={i}
+          className="absolute h-1 w-1 rounded-full bg-white"
+          initial={{
+            opacity: 0,
+            scale: 0,
+            x: Math.random() * 300,
+            y: Math.random() * 80,
+          }}
+          animate={{
+            opacity: [0, 1, 0],
+            scale: [0, 1, 0],
+          }}
+          transition={{
+            delay: i * 0.2,
+            duration: 2,
+            repeat: Infinity,
+            repeatType: 'loop',
+          }}
+        />
+      ))}
+    </div>
+
+    <div className="relative z-10 flex items-center gap-3">
+      <motion.div
+        initial={{ scale: 0, rotate: -180 }}
+        animate={{ scale: 1, rotate: 0 }}
+        transition={{ type: 'spring', stiffness: 200 }}
+      >
+        <Sparkles className="h-8 w-8 text-[#FFF0F2]" />
+      </motion.div>
+
+      <div className="flex-1">
+        <motion.p
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.1 }}
+          className="font-inter-tight font-semibold text-[#414141]"
+        >
+          You're on the List! ✨
+        </motion.p>
+        <motion.p
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2 }}
+          className="mt-1 font-inter-tight text-sm text-pretty text-blue-100"
+        >
+          Get ready for something amazing
+        </motion.p>
+      </div>
+
+      <motion.div
+        initial={{ y: 5 }}
+        animate={{
+          rotate: [0, 15, -15, 0],
+          y: [0, -5, 0],
+        }}
+        transition={{
+          duration: 3,
+          repeat: Infinity,
+          repeatType: 'reverse',
+        }}
+      >
+        <Music2 className="h-6.5 w-6.5 text-choristar-secondary" />
+      </motion.div>
+    </div>
+  </motion.div>
+)

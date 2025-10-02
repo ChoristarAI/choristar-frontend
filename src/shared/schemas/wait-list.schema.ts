@@ -1,8 +1,6 @@
 import { z } from 'zod'
 
 const emailSchema = z
-  .string()
-  .min(1, 'Email is required')
   .email('Please enter a valid email address')
   .max(80, 'Email must be less than 80 characters')
   .transform((email) => email.toLowerCase().trim())

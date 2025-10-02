@@ -38,7 +38,7 @@ const ForwardedInput: React.ForwardRefRenderFunction<
     >
       <div
         className={cn(
-          'flex h-full w-full flex-row items-center border border-text-field bg-background px-1 ring-offset-background transition-colors focus-within:ring-2 focus-within:ring-ring focus-within:ring-offset-2 focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:outline-none rounded-md',
+          'flex h-full w-full flex-row items-center rounded-md border border-text-field bg-background px-1 ring-offset-background transition-colors focus-within:ring-2 focus-within:ring-ring focus-within:ring-offset-2 focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:outline-none',
           innerClassName,
           error && 'border-destructive focus-within:ring-destructive',
         )}

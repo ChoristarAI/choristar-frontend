@@ -1,14 +1,15 @@
-import { TanstackDevtools } from '@tanstack/react-devtools'
-import type { QueryClient } from '@tanstack/react-query'
+import { TanStackDevtools } from '@tanstack/react-devtools'
 import {
-  createRootRouteWithContext,
   HeadContent,
-  Outlet,
   Scripts,
+  createRootRouteWithContext,
 } from '@tanstack/react-router'
 import { TanStackRouterDevtoolsPanel } from '@tanstack/react-router-devtools'
+import { Toaster } from 'sonner'
 
 import TanStackQueryDevtools from '../integrations/devtools'
+import appCss from '../styles/global.css?url'
+import type { QueryClient } from '@tanstack/react-query'
 
 interface MyRouterContext {
   queryClient: QueryClient
@@ -18,7 +19,22 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
   head: () => ({
     meta: [
       {
+        charSet: 'utf-8',
+      },
+      {
+        name: 'viewport',
+        content: 'width=device-width, initial-scale=1',
+      },
+      {
         title: 'Choristar AI - Revolutionizing Music Creation',
+      },
+      {
+        name: 'Googlebot',
+        content: 'index, follow',
+      },
+      {
+        name: 'theme-color',
+        content: '#F9F8FB',
       },
       {
         name: 'keywords',
@@ -71,6 +87,7 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
         content: 'https://choristar.io/og-image.png',
       },
       { name: 'twitter:image:alt', content: 'Choristar AI Platform' },
+      { name: 'twitter:url', content: 'https://choristar.io' },
 
       { name: 'apple-mobile-web-app-title', content: 'Choristar AI' },
       { name: 'apple-mobile-web-app-capable', content: 'yes' },
@@ -90,29 +107,63 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
     links: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       { rel: 'mask-icon', href: '/safari-pinned-tab.svg', color: '#F9F8FB' },
+      {
+        rel: 'stylesheet',
+        href: appCss,
+      },
+      {
+        rel: 'icon',
+        href: '/favicon.ico',
+      },
+      {
+        rel: 'manifest',
+        href: '/manifest.json',
+      },
     ],
   }),
   shellComponent: RootDocument,
 })
 
-function RootDocument() {
+const structuredData = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'WebApplication',
+  name: 'Choristar AI',
+  applicationCategory: 'MusicApplication',
+  operatingSystem: 'Web Browser',
+  description:
+    'AI-powered music creation platform for musicians, vocalists, and instrumentalists',
+  url: 'https://choristar.io/',
+})
+
+function RootDocument({ children }: { children: React.ReactNode }) {
   return (
-    <>
-      <HeadContent />
-      <Outlet />
-      <TanstackDevtools
-        config={{
-          position: 'bottom-left',
-        }}
-        plugins={[
-          {
-            name: 'Choristar AI Panel',
-            render: <TanStackRouterDevtoolsPanel />,
-          },
-          TanStackQueryDevtools,
-        ]}
-      />
-      <Scripts />
-    </>
+    <html lang="en">
+      <head>
+        <HeadContent />
+      </head>
+      <body>
+        <HeadContent />
+        {children}
+        <TanStackDevtools
+          config={{
+            position: 'bottom-left',
+          }}
+          plugins={[
+            {
+              name: 'Choristar AI Panel',
+              render: <TanStackRouterDevtoolsPanel />,
+            },
+            TanStackQueryDevtools,
+          ]}
+        />
+        <Toaster />
+        <Scripts />
+        <script
+          type="application/ld+json"
+          suppressHydrationWarning
+          dangerouslySetInnerHTML={{ __html: structuredData }}
+        />
+      </body>
+    </html>
   )
 }

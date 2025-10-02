@@ -1,27 +1,38 @@
 import { useStore } from '@tanstack/react-form'
 
 import { Loader } from 'lucide-react'
+import { Button, Input } from '../ui'
 import type { ComponentProps } from 'react'
 
-import { Button, Input } from '../ui'
 import type { InputProps } from '../ui'
 
 import { useFieldContext, useFormContext } from '@/hooks/form'
 
 interface SubscribeButtonProps extends ComponentProps<'button'> {
   label: string
+  loading?: boolean
+  loadingText?: string
 }
 
-export function SubscribeButton({ label, ...props }: SubscribeButtonProps) {
+export function SubscribeButton({
+  label,
+  loading,
+  loadingText = 'Submitting ...',
+  ...props
+}: SubscribeButtonProps) {
   const form = useFormContext()
   return (
     <form.Subscribe selector={(state) => [state.canSubmit, state.isSubmitting]}>
       {([canSubmit, isSubmitting]) => (
-        <Button {...props} type="submit" disabled={isSubmitting || !canSubmit}>
-          {isSubmitting ? (
+        <Button
+          {...props}
+          type="submit"
+          disabled={isSubmitting || !canSubmit || loading}
+        >
+          {isSubmitting || loading ? (
             <>
               <Loader className="h-4 w-4 animate-spin text-white" />
-              {'  '} Submitting ...
+              {'  '} {loadingText}
             </>
           ) : (
             label
@@ -42,7 +53,7 @@ function ErrorMessages({
   return (
     <div
       key={typeof err === 'string' ? err : err.message}
-      className="text-red-400 mt-1 font-medium text-[12.61px] font-inter-tight"
+      className="mt-1 font-inter-tight text-[12.61px] font-medium text-red-400"
     >
       {typeof err === 'string' ? err : err.message}
     </div>
