@@ -10,10 +10,10 @@ import { cn } from '@/lib/utils'
 
 export const PoweredMedleys = () => (
   <section className="section-container w-full px-4 md:px-8 lg:px-10 xl:px-16">
-    <div className="grid h-full w-full grid-cols-2 items-center py-14 md:py-24 gap-16 md:gap-4">
+    <div className="grid h-full w-full grid-cols-2 items-center gap-16 py-14 md:gap-4 md:py-24">
       <div className="col-span-2 w-full place-content-center place-items-center items-center-safe md:col-span-1">
         <div className="relative flex min-h-96 w-full items-center justify-center">
-          <div className="absolute bottom-0 h-52 w-full md:max-w-[400px] rounded-br-2xl rounded-bl-2xl bg-[#F5F5F7] shadow-2xl max-w-90">
+          <div className="absolute bottom-0 h-52 w-full max-w-90 rounded-br-2xl rounded-bl-2xl bg-[#F5F5F7] shadow-2xl md:max-w-[400px]">
             <div className="relative">
               <motion.div
                 initial={{ opacity: 0.6, y: 5 }}
@@ -31,13 +31,13 @@ export const PoweredMedleys = () => (
                   originX: 0.5,
                   originY: 0.5,
                 }}
-                className="absolute z-50 bg-choristar-primary w-13 h-13 rounded-full flex justify-center items-center -left-6 shadow-[0px_4.38px_54.81px_0px_#7B4FFF] -rotate-30"
+                className="absolute -left-6 z-50 flex h-13 w-13 -rotate-30 items-center justify-center rounded-full bg-choristar-primary shadow-[0px_4.38px_54.81px_0px_#7B4FFF]"
               >
                 <MusicWhiteIcon />
               </motion.div>
             </div>
           </div>
-          <div className="absolute z-10 flex min-h-80 w-full md:max-w-90 flex-col gap-3 rounded-2xl bg-[#F5F5F7] px-6 py-9 shadow-2xl max-w-80">
+          <div className="absolute z-10 flex min-h-80 w-full max-w-80 flex-col gap-3 rounded-2xl bg-[#F5F5F7] px-6 py-9 shadow-2xl md:max-w-90">
             <div className="flex flex-col items-center justify-center gap-1">
               <MusicPrimaryIcon />
               <span className="block text-center font-inter-tight text-xl font-semibold text-pretty capitalize">
@@ -219,7 +219,7 @@ const AnimatedTransitionTab = () => {
           type="button"
           disabled={isSubmitting}
           onClick={simulateSubmit}
-          className="mt-3 flex w-full items-center gap-2 rounded-3xl h-12"
+          className="mt-3 flex h-12 w-full items-center gap-2 rounded-3xl"
         >
           {isSubmitting ? (
             <>

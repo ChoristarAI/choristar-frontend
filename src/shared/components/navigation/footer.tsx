@@ -2,11 +2,12 @@ import { Link } from '@tanstack/react-router'
 
 import { Button } from '../ui'
 
+import { WaitListForm } from '../misc'
 import { ChoristarLogoIcon } from '@/assets/svg'
 
 export const Footer = () => {
   return (
-    <footer className="relative flex flex-col items-center justify-around gap-4 border-t border-footer-border py-4 md:flex-row bg-transparent">
+    <footer className="relative flex flex-col items-center justify-around gap-4 border-t border-footer-border bg-transparent py-4 md:flex-row">
       <Link className="order-1 flex items-center gap-4 md:order-1" to="/">
         <ChoristarLogoIcon />
         <p className="font-semibold text-main-text capitalize">choristar</p>
@@ -18,15 +19,23 @@ export const Footer = () => {
         <span>All Rights Reserved</span>
       </div>
       <div className="order-2 flex items-center gap-4 md:order-3">
+        <WaitListForm>
+          <Button asChild variant="ghost" className="text-lg">
+            <span className="text-lg text-main-text capitalize">
+              join the waitlist
+            </span>
+          </Button>
+        </WaitListForm>
         <Button asChild variant="ghost" className="text-lg">
-          <span className="text-lg text-main-text capitalize">
-            join the waitlist
-          </span>
-        </Button>
-        <Button asChild variant="ghost" className="text-lg">
-          <span className="block text-lg text-main-text capitalize">
-            contact us
-          </span>
+          <a
+            aria-label="Choristar AI Mail"
+            href="mailto:info@choristar.io?subject=Hello Admin"
+            title="Contact US"
+          >
+            <span className="block text-lg text-main-text capitalize">
+              contact us
+            </span>
+          </a>
         </Button>
       </div>
     </footer>

@@ -8,8 +8,8 @@ import { cn } from '@/lib/utils'
 
 export const ScoringAssistant = () => (
   <section className="section-container w-full px-4 md:px-8 lg:px-10 xl:px-16">
-    <div className="grid h-full w-full grid-cols-2 items-center py-14 md:py-24 md:gap-4 gap-16">
-      <div className="col-span-2 flex flex-col gap-9.5 md:col-span-1 md:order-1 order-2">
+    <div className="grid h-full w-full grid-cols-2 items-center gap-16 py-14 md:gap-4 md:py-24">
+      <div className="order-2 col-span-2 flex flex-col gap-9.5 md:order-1 md:col-span-1">
         <div className="flex flex-col gap-4">
           <span className="block font-inter-tight text-lg leading-6 font-semibold text-pretty text-[#6F46E5]">
             AI Scoring Assistant
@@ -25,29 +25,29 @@ export const ScoringAssistant = () => (
         </div>
         <ButtonWithOutline className="w-max rounded-3xl px-5 py-3.5 font-medium" />
       </div>
-      <div className="col-span-2 w-full place-content-center place-items-center items-center-safe md:col-span-1 order-1 md:order-2">
+      <div className="order-1 col-span-2 w-full place-content-center place-items-center items-center-safe md:order-2 md:col-span-1">
         <div className="relative flex min-h-96 w-full items-center justify-center">
-          <div className="absolute z-40 -top-3 md:left-0 -left-10">
+          <div className="absolute -top-3 -left-10 z-40 md:left-0">
             <SoundWaveLoader data={soundWaveData} />
           </div>
           <div className="absolute z-10 flex min-h-80 w-full max-w-90 flex-col gap-5 rounded-2xl bg-[#F5F5F7] px-6 py-9 shadow-2xl">
-            <div className="mt-9.5 md:pl-6.5 grid grid-cols-2 gap-3.5">
+            <div className="mt-9.5 grid grid-cols-2 gap-3.5 md:pl-6.5">
               {options.map(({ title, icon }) => (
-                <div key={title} className="inline-flex gap-1.5 items-center">
+                <div key={title} className="inline-flex items-center gap-1.5">
                   {icon}
-                  <span className="block font-semibold text-sub-text font-inter-tight text-[12.69px] text-pretty">
+                  <span className="block font-inter-tight text-[12.69px] font-semibold text-pretty text-sub-text">
                     {title}
                   </span>
                 </div>
               ))}
             </div>
-            <p className="text-sub-text font-medium text-[12px]">
+            <p className="text-[12px] font-medium text-sub-text">
               Okay, playing you the instrumentals now.
             </p>
-            <div className="md:pl-6.5 overflow-hidden">
-              <div className="inline-flex gap-1.5 items-center">
+            <div className="overflow-hidden md:pl-6.5">
+              <div className="inline-flex items-center gap-1.5">
                 <PauseIcon />
-                <span className="block font-semibold text-sub-text font-inter-tight text-[12.69px] text-pretty">
+                <span className="block font-inter-tight text-[12.69px] font-semibold text-pretty text-sub-text">
                   Overflow Instrumental
                 </span>
               </div>
@@ -117,7 +117,7 @@ const SongSections = () => {
         duration: 0.5,
         ease: 'linear',
       }}
-      className="flex gap-2 items-center mt-2.5"
+      className="mt-2.5 flex items-center gap-2"
     >
       {duplicatedSections.map((sect, idx) => {
         const realIndex = idx % songSections.length
@@ -135,15 +135,15 @@ const SongSections = () => {
               opacity: 0.85,
             }}
             className={cn(
-              'px-3 py-2 bg-white rounded-3xl flex items-center justify-center',
+              'flex items-center justify-center rounded-3xl bg-white px-3 py-2',
               isActive &&
-                'border-choristar-primary border bg-choristar-primary-light',
+                'border border-choristar-primary bg-choristar-primary-light',
             )}
             transition={{ type: 'spring', stiffness: 300, damping: 20 }}
           >
             <span
               className={cn(
-                'font-normal text-sub-text text-pretty whitespace-nowrap capitalize text-[12.69px]',
+                'text-[12.69px] font-normal text-pretty whitespace-nowrap text-sub-text capitalize',
                 isActive && 'font-semibold',
               )}
             >
@@ -177,7 +177,7 @@ const SoundWaveLoader: React.FC<SoundWaveLoaderProps> = ({
   ease = 'backInOut',
 }) => (
   <div
-    className={cn('flex flex-row items-center gap-x-0.5 min-h-20', className)}
+    className={cn('flex min-h-20 flex-row items-center gap-x-0.5', className)}
   >
     {data.map((height, idx) => (
       <motion.div
