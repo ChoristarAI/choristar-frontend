@@ -33,6 +33,10 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
         content: 'index, follow',
       },
       {
+        name: 'env',
+        content: `${import.meta.env.PROD}`,
+      },
+      {
         name: 'theme-color',
         content: '#F9F8FB',
       },
@@ -144,7 +148,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
       <body>
         <HeadContent />
         {children}
-        {import.meta.env.PROD ? (
+        {import.meta.env.PROD ? null : (
           <TanStackDevtools
             config={{
               position: 'bottom-left',
@@ -157,7 +161,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
               TanStackQueryDevtools,
             ]}
           />
-        ) : null}
+        )}
         <Toaster />
         <Scripts />
         <script
