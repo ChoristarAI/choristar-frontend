@@ -125,10 +125,10 @@ const WaitListFormComponent: React.FC<WaitListFormComponentProps> = ({
         className="flex flex-col gap-5"
       >
         <form.AppField name="name">
-          {(field) => <field.TextField placeholder="Name *" />}
+          {(field) => <field.TextField placeholder="Name *" type="text" />}
         </form.AppField>
         <form.AppField name="email">
-          {(field) => <field.TextField placeholder="Email *" />}
+          {(field) => <field.TextField placeholder="Email *" type="email" />}
         </form.AppField>
         <form.AppField name="title">
           {(field) => <field.TextField placeholder="Vocalist/Musician/MD *" />}
