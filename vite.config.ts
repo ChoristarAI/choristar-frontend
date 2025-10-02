@@ -21,9 +21,6 @@ const config = defineConfig({
       include: '**/*.svg?react',
     }),
   ],
-  build: {
-    outDir: 'dist',
-  },
 })
 
 export default config
