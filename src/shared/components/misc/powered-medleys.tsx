@@ -87,16 +87,16 @@ const tabOptions: Array<TabOptions> = [
 ]
 
 const demoTexts = [
-  'Harmonize your world ✨',
-  'Lead with purpose',
-  'Create impact together',
-  'Inspire through action',
-  'Collaborate with ease',
-  'Grow beyond limits',
-  'Design your future',
-  'Empower your team',
-  'Simplify the complex ⚡',
-  'Achieve balance with notes & chords',
+  'Highlife - Nigeria - Victory in Jesus',
+  'Afrobeat - Ghana - Joy Overflow',
+  'Salsa - Cuba - Dance of Praise',
+  'Reggae - Jamaica - Hallelujah Forever',
+  'Makossa - Cameroon - Lift His Name Higher',
+  'Calypso - Trinidad - Joyful Sounds of Zion',
+  'Gospel Funk - USA - Revival Fire',
+  'Benga - Kenya - Crown Him Lord',
+  'Chorale - South Africa - Holy Is the Lord',
+  'Afro-Soul - Nigeria - Spirit and Truth Worship',
 ]
 
 const AnimatedTransitionTab = () => {
