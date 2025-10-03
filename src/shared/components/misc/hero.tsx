@@ -23,7 +23,6 @@ export const Hero = () => {
 
   return (
     <section className="section-container z-10 h-[calc(100lvh-80px)] bg-[linear-gradient(180deg,#F9F8FB_70.67%,#FFFFFF_100%)] px-4 md:px-10 lg:px-14 xl:px-24">
-      <div className="absolute [background-image:radial-gradient(circle_at_20%_20%,#6F46E50D_20%,transparent_60%),radial-gradient(circle_at_50%_50%,#FF647F0D_20%,transparent_60%)] opacity-60"></div>
       <div className="relative mt-5 flex h-full w-full flex-col md:mt-3 md:flex-row lg:mt-0">
         <div className="lg:w-2/5">
           <div className="flex h-full w-full flex-col items-start justify-center gap-3">
