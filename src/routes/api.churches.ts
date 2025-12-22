@@ -27,7 +27,7 @@ export const Route = createFileRoute('/api/churches')({
               error: errorMessage,
             }),
             {
-              status: 400,
+              status: 500,
               headers: { 'Content-Type': 'application/json' },
             },
           )
