@@ -292,7 +292,7 @@ export const nigerianChurches = [
     name: 'All Christians Fellowship Mission',
     category: 'Pentecostal/Charismatic',
     headquarters: 'Lagos, Nigeria',
-    founder: 'Williams O. E. Kumuyi',
+    founder: 'William Okoye',
     yearFounded: 1973,
     estimatedMembership: '50,000+',
   },
