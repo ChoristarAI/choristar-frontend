@@ -350,15 +350,6 @@ export const nigerianChurches = [
     yearFounded: 1913,
     estimatedMembership: '500,000+',
   },
-  {
-    id: 'winners-chapel-intl',
-    name: 'Winners Chapel International (US/UK)',
-    category: 'Pentecostal/Charismatic',
-    headquarters: 'London, UK / Dallas, USA',
-    founder: 'David Oyedepo',
-    yearFounded: 1989,
-    estimatedMembership: '1+ million',
-  },
 ]
 
 export const africanChurches = [
