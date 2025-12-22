@@ -18,7 +18,12 @@ const filteredConfig = tanstackConfig.map((config) => {
       },
     }
   }
-  return config
+  return config.ignores
+    ? {
+        ...config,
+        ignores: [...config.ignores, 'eslint.config.js', 'prettier.config.js'],
+      }
+    : config
 })
 
 export default filteredConfig
