@@ -291,9 +291,9 @@ export const nigerianChurches = [
     id: 'acfm',
     name: 'All Christians Fellowship Mission',
     category: 'Pentecostal/Charismatic',
-    headquarters: 'Lagos, Nigeria',
+    headquarters: 'Abuja, Nigeria',
     founder: 'William Okoye',
-    yearFounded: 1973,
+    yearFounded: 1988,
     estimatedMembership: '50,000+',
   },
   {
