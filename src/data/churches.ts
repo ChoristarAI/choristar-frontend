@@ -379,7 +379,7 @@ export const africanChurches = [
     category: 'Mainline/Orthodox',
     headquarters: 'Addis Ababa, Ethiopia',
     founder: 'Saint Frumentius',
-    yearFounded: '4th century',
+    yearFounded: 330,
     estimatedMembership: '36+ million',
   },
   {
